@@ -1,68 +1,81 @@
-# Trendyol Fiyat Karşılaştırma Uygulaması
+# 🛒 Trendyol Price Comparison Tool
 
-Bu proje, **Trendyol** üzerindeki ürünlerin fiyatlarını otomatik olarak toplayan ve karşılaştırmalı bir tablo şeklinde gösteren web tabanlı bir uygulamadır.  
-Kullanıcıdan alınan ürün linki aracılığıyla **tüm satıcıların fiyat, kargo bilgisi ve puanları** dinamik olarak analiz edilir.  
-Sonuçlar web arayüzünde görüntülenir ve CSV olarak indirilebilir.
+[![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-Web_App-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![Selenium](https://img.shields.io/badge/Selenium-Web_Scraping-43B02A?logo=selenium&logoColor=white)](https://www.selenium.dev/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
----
+A web-based application that automatically collects prices for products on Trendyol and displays them in a comparison table.
+Given a product link, the app dynamically analyzes the price, shipping information, and rating of every seller offering that product. Results are shown in the web interface and can be exported as CSV.
 
-## Özellikler
--  **Otomatik Veri Toplama (Web Scraping):**  
-  Selenium ile dinamik sayfa içeriğini çeker, BeautifulSoup ile satıcı verilerini ayrıştırır.  
--  **Fiyat Karşılaştırması:**  
-  Tüm satıcıların fiyat, puan ve kargo bilgilerini tablo halinde gösterir.  
--  **CSV Dışa Aktarma:**  
-  Kullanıcı, tek tuşla tabloyu `urunler.csv` olarak indirebilir.  
--  **Web Arayüzü:**  
-  Flask tabanlı, sade ve mobil uyumlu bir arayüz (Bootstrap 5).
+## 📑 Table of Contents
 
----
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
+- [Usage](#-usage)
+- [Example Output](#-example-output)
+- [Author](#-author)
 
-##  Kullanılan Teknolojiler
-- **Python 3.9+**
-- **Flask** – Web arayüzü için  
-- **Selenium** – Dinamik içerik çekimi  
-- **BeautifulSoup4 (bs4)** – HTML ayrıştırma  
-- **Pandas** – Veri işleme ve CSV kaydı  
-- **Bootstrap 5** – Arayüz tasarımı  
+## ✨ Features
 
----
+- **Automated data collection (web scraping):** Fetches dynamic page content with Selenium and parses seller data with BeautifulSoup.
+- **Price comparison:** Displays price, rating, and shipping info for every seller in a single table.
+- **CSV export:** Download the full table as `products.csv` with one click.
+- **Web interface:** A clean, mobile-friendly Flask app built with Bootstrap 5.
 
-##  Kurulum ve Çalıştırma
+## 🛠 Tech Stack
 
-### 1️. Gerekli kütüphaneleri yükle
+| Technology | Purpose |
+|---|---|
+| **Python 3.9+** | Core language |
+| **Flask** | Web interface |
+| **Selenium** | Dynamic content scraping |
+| **BeautifulSoup4 (bs4)** | HTML parsing |
+| **Pandas** | Data processing and CSV export |
+| **Bootstrap 5** | UI design |
+
+## 🚀 Getting Started
+
+1. Install the required libraries:
+
 ```bash
 pip install flask selenium beautifulsoup4 pandas webdriver-manager
 ```
 
-### 2️. Proje dizin yapısı
+2. Project structure:
+
 ```
-trendyol-fiyat-karsilastirma
- ┣  app.py                   # Flask web uygulaması
- ┣  web.py                   # Veri çekme ve analiz kodları
- ┣  urun_fiyat_karsilastirma.csv   # Örnek çıktı dosyası
- ┗  templates / static (opsiyonel)  # Web sayfa içeriği
+trendyol-price-comparison/
+├── app.py                  → Flask web application
+├── web.py                  → Data scraping and analysis logic
+├── products.csv            → Example output file
+└── templates / static      → Web page assets (optional)
 ```
 
-### 3️. Uygulamayı başlat
+3. Start the app:
+
 ```bash
 python app.py
 ```
-Tarayıcıda şu adresi aç: http://127.0.0.1:5000
- 
-## Kullanım
 
-- Uygulamayı çalıştır.
-- Açılan sayfada Trendyol ürün linkini gir.
-- “Verileri Getir” butonuna tıkla.
-- Tüm satıcıların fiyatları tablo olarak listelenecek.
--İstersen tabloyu CSV olarak indirebilirsin.
+4. Open your browser at: `http://127.0.0.1:5000`
 
-| Satıcı Adı     | Fiyat   | Kargo Bilgisi  | Satıcı Puanı | Ürün Puanı |
-| -------------- | ------- | -------------- | ------------ | ---------- |
-| Trendyol       | 999.90  | Ücretsiz Kargo | 9.8          | 4.7        |
-| ABC Elektronik | 1015.00 | 1 Gün İçinde   | 9.4          | 4.7        |
-| XYZ Store      | 1029.99 | Ücretsiz Kargo | 9.6          | 4.7        |
+## 📖 Usage
 
+1. Run the application.
+2. Enter a Trendyol product link on the page.
+3. Click **"Fetch Data."**
+4. Prices from all sellers will be listed in a table — download it as CSV if you'd like.
 
-Developer: Sedanur Peker
+## 📊 Example Output
+
+| Seller Name | Price | Shipping Info | Seller Rating | Product Rating |
+|---|---|---|---|---|
+| Trendyol | 999.90 | Free Shipping | 9.8 | 4.7 |
+| ABC Elektronik | 1015.00 | Ships in 1 Day | 9.4 | 4.7 |
+| XYZ Store | 1029.99 | Free Shipping | 9.6 | 4.7 |
+
+## 👤 Author
+
+**Sedanur Peker**
